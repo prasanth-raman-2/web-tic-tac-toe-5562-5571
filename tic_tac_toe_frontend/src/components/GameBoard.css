@@ -3,21 +3,26 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+  background-color: var(--bg-primary);
+  border-radius: 20px;
+  box-shadow: 0 6px 17px rgba(0, 0, 0, 0.1);
+  margin: 2rem;
 }
 
 .status {
+  font-family: var(--font-poppins);
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
+  font-weight: 500;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  background: var(--bg-secondary);
+  gap: 0.8rem;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .square {
@@ -25,17 +30,21 @@
   height: 80px;
   font-size: 2.5rem;
   font-weight: bold;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   border: 2px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
   color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .square:hover {
-  background: var(--bg-secondary);
   transform: scale(1.05);
+  background: var(--bg-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .square.X {
@@ -44,4 +53,27 @@
 
 .square.O {
   color: #ff6b6b;
+}
+
+.winner {
+  animation: winner-animation 0.5s ease-in-out;
+}
+
+@keyframes winner-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 480px) {
+  .square {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+  
+  .game-board {
+    padding: 1rem;
+    margin: 1rem;
+  }
 }
